@@ -1,0 +1,10 @@
+Question : How to determine the median of Array of Integers at run-time ?
+                            i.e
+            Integers are adding up to the array dynamically and we have to determine the median at each point
+            
+Example : 6 , 4 , 0 , 2           --> 2+4/2 = 3
+          6 , 4 , 0 , 2 , 12      --> 4
+          6 , 4 , 0 , 2 , 12 , 5  --> 4+5/2 = 3.5
+          and so on..
+          
+          
