@@ -1,0 +1,38 @@
+class MedianFinder {
+public:
+    /** initialize your data structure here. */
+    priority_queue<int> low;
+    priority_queue<int , vector<int> , greater<int> > high;
+    int n;
+    MedianFinder() {
+        n = 0;
+    }
+    
+    void addNum(int num) {
+        n++;
+        // First Add to 1st low half
+        low.push(num);
+        // Now balance the high half by removing an element from 1st half
+        high.push(low.top());
+        low.pop();
+        // We assume to have more elements in 1st half than 2nd
+        if(low.size() < high.size())
+        {
+            // Remove am element form 2nd half
+            low.push(high.top());
+            high.pop();
+        }
+    }
+    
+    double findMedian() {
+        if(n == 0) return 0.0;
+        return (low.size() > high.size()) ? (low.top())/1.0 : (low.top() + high.top())/2.0;
+    }
+};
+
+/**
+ * Your MedianFinder object will be instantiated and called as such:
+ * MedianFinder* obj = new MedianFinder();
+ * obj->addNum(num);
+ * double param_2 = obj->findMedian();
+ */
