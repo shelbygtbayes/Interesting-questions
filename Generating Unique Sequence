@@ -1,0 +1,29 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+void print(vector<int> v)
+{
+    for(int ind = 0 ; ind < v.size() ; ind++)
+    {
+        cout << v[ind] << " ";
+    }
+}
+int main()
+{
+    int n = 11;
+    vector<int> v(n,0);
+    for(int ind = 0 ; ind < n ; ind++)
+        v[ind] = ind;
+    // Approach
+    int max = n-1;
+    for(int ind = 0 ; ind < n ; ind++)
+    {
+        int r = rand() % 10;
+        swap(v[r] , v[max]);
+        print(v);
+        cout << endl;
+        max--;
+    }
+    
+    return 0;
+}
